@@ -2,62 +2,53 @@ import { Text, StyleSheet, Image, Pressable, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import dayjs from "dayjs";
-import relativeTime from 'dayjs/plugin/relativeTime';
+import relativeTime from "dayjs/plugin/relativeTime";
 dayjs.extend(relativeTime);
 
 const ContactListItem = ({ user }) => {
-    const navigation = useNavigation();
+  const navigation = useNavigation();
 
-    return (
+  return (
     <Pressable onPress={() => {}} style={styles.container}>
-        <Image 
-            source={{uri: user.image}} 
-            style={styles.image}
-        />
-    
-        <View style={styles.content}>
-            <Text numberOfLines={1} style={styles.name}>
-                {user.name}
-            </Text>    
+      <Image source={{ uri: user.image }} style={styles.image} />
 
-            <Text numberOfLines={2} style={styles.subTitle}>
-                {user.status}
-            </Text>
-        </View>
+      <View style={styles.content}>
+        <Text numberOfLines={1} style={styles.name}>
+          {user.name}
+        </Text>
 
+        <Text numberOfLines={2} style={styles.subTitle}>
+          {user.status}
+        </Text>
+      </View>
     </Pressable>
-        
-        
-        
-    );
-    }
-    
+  );
+};
+
 const styles = StyleSheet.create({
-    container: {
-        flexDirection: 'row',
-        marginHorizontal: 10,
-        marginVertical: 5,
-        height: 70,
-        alignItems: 'center',
-    },
-    image: {
-        width:60,
-        height:60,
-        borderRadius: 30,
-        marginRight: 10,
-    },
-    name: {
-        flex: 1,
-        fontWeight: 'bold',
-
-    },
-    content: {
-
-    },
-    subTitle: {
-        color: 'gray',
-    }
-    });
-
+  container: {
+    flexDirection: "row",
+    marginHorizontal: 10,
+    marginVertical: 5,
+    height: 70,
+    alignItems: "center",
+  },
+  image: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    marginRight: 10,
+  },
+  name: {
+    flex: 1,
+    fontWeight: "bold",
+  },
+  content: {
+    flex: 1,
+  },
+  subTitle: {
+    color: "gray",
+  },
+});
 
 export default ContactListItem;
